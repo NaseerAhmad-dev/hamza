@@ -1,0 +1,237 @@
+    <!-- ── Hero ── -->
+    <section class="relative min-h-[calc(100vh-72px)] flex items-center overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#022c20] via-emerald-800 to-emerald-600"></div>
+      <div class="absolute inset-0 geo-bg opacity-[0.07]"></div>
+      <!-- Orbs -->
+      <div class="absolute -top-40 -right-20 w-[500px] h-[500px] rounded-full bg-yellow-400 opacity-10 blur-[80px]"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-emerald-300 opacity-10 blur-[60px]"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full py-20">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6
+                    bg-yellow-400/10 border border-yellow-400/30 text-yellow-300
+                    text-xs font-bold tracking-[2px] uppercase">
+          ✦ Trusted Since 2008 · Ministry Approved
+        </div>
+
+        <h1 class="font-serif text-5xl md:text-7xl font-bold text-white leading-[1.05] mb-6">
+          Journey to the<br>
+          <span class="text-yellow-400">Sacred Lands</span><br>
+          Begin Here
+        </h1>
+
+        <p class="text-lg text-white/70 max-w-lg leading-relaxed mb-10 font-light">
+          Your trusted partner for Umrah, Hajj pilgrimage, and overseas career
+          opportunities. Serving thousands with excellence and devotion.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-16">
+          <a routerLink="/umrah"
+             class="px-8 py-4 rounded-full bg-yellow-400 text-neutral-900 font-bold text-sm
+                    hover:bg-yellow-300 hover:-translate-y-0.5 transition-all duration-200
+                    shadow-[0_8px_30px_rgba(212,175,55,0.4)]">
+            Explore Umrah Packages
+          </a>
+          <a routerLink="/hajj"
+             class="px-8 py-4 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur
+                    text-white font-semibold text-sm hover:bg-white/20 transition-all duration-200">
+            View Hajj Packages
+          </a>
+          <a routerLink="/jobs"
+             class="px-8 py-4 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur
+                    text-white font-semibold text-sm hover:bg-white/20 transition-all duration-200">
+            Browse Jobs
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap gap-10">
+          @for (stat of stats; track stat.label) {
+            <div>
+              <div class="font-serif text-4xl font-bold text-yellow-400">{{ stat.value }}</div>
+              <div class="text-xs text-white/60 mt-1 tracking-wide">{{ stat.label }}</div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Featured Umrah ── -->
+    <section class="max-w-7xl mx-auto px-6 md:px-10 py-24">
+      <div class="text-center mb-16">
+        <div class="section-eyebrow">Umrah Packages</div>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          Blessed Umrah Journeys
+        </h2>
+        <p class="text-neutral-500 dark:text-neutral-400 max-w-lg mx-auto leading-relaxed">
+          Carefully crafted packages to ensure a spiritually enriching and comfortable pilgrimage experience.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        @for (pkg of featuredUmrah(); track pkg.id) {
+          <app-package-card [package]="pkg" />
+        }
+        @if (!featuredUmrah().length) {
+          @for (i of [1,2,3]; track i) {
+            <div class="skeleton h-80 rounded-2xl"></div>
+          }
+        }
+      </div>
+      <div class="text-center mt-10">
+        <a routerLink="/umrah"
+           class="inline-flex px-9 py-3.5 rounded-full bg-emerald-800 text-white font-semibold text-sm
+                  hover:bg-emerald-700 transition-colors duration-200">
+          View All Umrah Packages →
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Featured Hajj ── -->
+    <section class="bg-neutral-50 dark:bg-neutral-900 py-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16">
+          <div class="section-eyebrow">Hajj Packages</div>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            Sacred Hajj Pilgrimages
+          </h2>
+          <p class="text-neutral-500 dark:text-neutral-400 max-w-lg mx-auto leading-relaxed">
+            Perform the Fifth Pillar of Islam with trusted guidance, comfort, and complete peace of mind.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          @for (pkg of featuredHajj(); track pkg.id) {
+            <app-package-card [package]="pkg" />
+          }
+          @if (!featuredHajj().length) {
+            @for (i of [1,2,3]; track i) {
+              <div class="skeleton h-80 rounded-2xl"></div>
+            }
+          }
+        </div>
+        <div class="text-center mt-10">
+          <a routerLink="/hajj"
+             class="inline-flex px-9 py-3.5 rounded-full bg-emerald-800 text-white font-semibold text-sm
+                    hover:bg-emerald-700 transition-colors duration-200">
+            View All Hajj Packages →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Featured Jobs ── -->
+    <section class="max-w-7xl mx-auto px-6 md:px-10 py-24">
+      <div class="text-center mb-16">
+        <div class="section-eyebrow">Overseas Careers</div>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          Global Job Opportunities
+        </h2>
+        <p class="text-neutral-500 dark:text-neutral-400 max-w-lg mx-auto leading-relaxed">
+          Connect with top employers worldwide. We match skilled professionals with the right opportunities.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @for (job of featuredJobs(); track job.id) {
+          <app-job-card [job]="job" (applyClick)="openApply($event)" />
+        }
+        @if (!featuredJobs().length) {
+          @for (i of [1,2,3]; track i) {
+            <div class="skeleton h-52 rounded-2xl"></div>
+          }
+        }
+      </div>
+      <div class="text-center mt-10">
+        <a routerLink="/jobs"
+           class="inline-flex px-9 py-3.5 rounded-full bg-emerald-800 text-white font-semibold text-sm
+                  hover:bg-emerald-700 transition-colors duration-200">
+          View All Jobs →
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Why Choose Us ── -->
+    <section class="bg-neutral-50 dark:bg-neutral-900 geo-bg py-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="text-center mb-16">
+          <div class="section-eyebrow">Why Choose Us</div>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            Your Trust is Our Honour
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          @for (f of features; track f.title) {
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 border border-neutral-100
+                        dark:border-neutral-700 text-center hover:border-emerald-200 hover:shadow-luxury
+                        transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center
+                          justify-center text-3xl mx-auto mb-5">{{ f.icon }}</div>
+              <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">{{ f.title }}</h3>
+              <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">{{ f.desc }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Testimonials ── -->
+    <section class="py-24 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 mb-12">
+        <div class="text-center">
+          <div class="section-eyebrow">Testimonials</div>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100">
+            What Our Pilgrims Say
+          </h2>
+        </div>
+      </div>
+      <div class="testimonials-track">
+        @for (t of allTestimonials; track $index) {
+          <div class="min-w-[340px] bg-white dark:bg-neutral-800 rounded-2xl p-7
+                      border border-neutral-100 dark:border-neutral-700">
+            <div class="text-yellow-400 tracking-widest mb-3">★★★★★</div>
+            <p class="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed mb-5 italic">
+              "{{ t.text }}"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-800 to-yellow-400
+                          flex items-center justify-center text-white font-bold text-base">
+                {{ t.initial }}
+              </div>
+              <div>
+                <div class="font-bold text-sm text-neutral-900 dark:text-neutral-100">{{ t.name }}</div>
+                <div class="text-xs text-neutral-400">{{ t.loc }}</div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ── CTA Banner ── -->
+    <div class="mx-6 md:mx-10 mb-20">
+      <div class="rounded-2xl bg-gradient-to-br from-[#022c20] to-emerald-700 p-12 md:p-16
+                  relative overflow-hidden">
+        <div class="absolute inset-0 geo-bg opacity-5"></div>
+        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center
+                    justify-between gap-8">
+          <div>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-3">
+              Ready for Your Sacred Journey?
+            </h2>
+            <p class="text-white/70 max-w-xl">
+              Let our experts plan every detail of your pilgrimage. Contact us today for a personalized package.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 flex-shrink-0">
+            <a routerLink="/contact"
+               class="px-8 py-4 rounded-full bg-yellow-400 text-neutral-900 font-bold text-sm
+                      hover:bg-yellow-300 transition-colors duration-200">
+              Get Free Consultation
+            </a>
+            <a routerLink="/contact"
+               class="px-8 py-4 rounded-full border-2 border-white/30 text-white font-semibold text-sm
+                      hover:bg-white/10 transition-colors duration-200">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>

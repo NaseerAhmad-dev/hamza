@@ -1,0 +1,81 @@
+    <div class="bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden border
+                border-neutral-100 dark:border-neutral-700 shadow-luxury
+                hover:-translate-y-1.5 hover:shadow-luxury-lg hover:border-emerald-200
+                transition-all duration-300 cursor-pointer group">
+
+      <!-- Image -->
+      <div class="relative h-48 overflow-hidden"
+           [style.background]="package.type === 'hajj'
+             ? 'linear-gradient(135deg,#7c4800,#d4860a)'
+             : 'linear-gradient(135deg,#022c20,#065F46)'">
+
+        @if (package.images.length) {
+          <img [src]="package.images[0]" [alt]="package.title"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        } @else {
+          <div class="w-full h-full flex items-center justify-center text-7xl select-none">
+            {{ package.type === 'hajj' ? '🕋' : '🕌' }}
+          </div>
+        }
+
+        <!-- Type Badge -->
+        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold
+                     tracking-wider uppercase text-white"
+              [class.bg-emerald-800]="package.type === 'umrah'"
+              [class.bg-yellow-600]="package.type === 'hajj'">
+          {{ package.type === 'umrah' ? '🕌 Umrah' : '☪ Hajj' }}
+        </span>
+
+        @if (package.featured) {
+          <span class="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[10px] font-bold
+                       bg-yellow-400 text-neutral-900 uppercase tracking-wider">
+            ⭐ Featured
+          </span>
+        }
+      </div>
+
+      <!-- Body -->
+      <div class="p-6">
+        <!-- Meta -->
+        <div class="flex flex-wrap gap-3 mb-3">
+          <span class="flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+            ⏱ {{ package.duration.split('/')[0].trim() }}
+          </span>
+          <span class="flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+            ✈ {{ package.departure }}
+          </span>
+          <span class="flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+            💺 {{ package.seats }} seats
+          </span>
+        </div>
+
+        <h3 class="font-serif text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3 leading-snug">
+          {{ package.title }}
+        </h3>
+
+        <!-- Includes tags -->
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          @for (item of package.includes.slice(0,3); track item) {
+            <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full
+                         bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">
+              {{ item }}
+            </span>
+          }
+        </div>
+
+        <!-- Footer -->
+        <div class="flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-700">
+          <div>
+            <div class="text-[11px] text-neutral-400 uppercase tracking-wide">per person</div>
+            <div class="font-serif text-2xl font-bold text-emerald-800 dark:text-emerald-400">
+              {{ '$' + package.price.toLocaleString() }}
+            </div>
+          </div>
+          <a [routerLink]="'/' + package.type + '/' + package.id"
+             class="px-5 py-2 rounded-lg border-2 border-emerald-700 text-emerald-700 text-sm font-semibold
+                    hover:bg-emerald-700 hover:text-white transition-all duration-200">
+            View Details
+          </a>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1",
+    "title": "Economy Umrah Package",
+    "type": "umrah",
+    "tier": "Economy",
+    "price": 1500,
+    "duration": "7 Days",
+    "departure": "London",
+    "departureDate": "2024-05-15",
+    "seats": 20,
+    "includes": ["Airfare", "Hotel", "Transport", "Visa"],
+    "excludes": ["Meals", "Personal Expenses"],
+    "itinerary": [
+      { "day": 1, "title": "Departure from London", "description": "Flight to Jeddah" },
+      { "day": 2, "title": "Arrival in Medina", "description": "Visit Masjid al-Nabawi" },
+      { "day": 3, "title": "Medina Sightseeing", "description": "Explore historical sites" },
+      { "day": 4, "title": "Travel to Mecca", "description": "Journey to the Holy City" },
+      { "day": 5, "title": "Umrah Rituals", "description": "Perform Umrah" },
+      { "day": 6, "title": "Free Day", "description": "Rest and reflection" },
+      { "day": 7, "title": "Return Journey", "description": "Flight back to London" }
+    ],
+    "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"],
+    "featured": true
+  },
+  {
+    "id": "2",
+    "title": "Premium Umrah Package",
+    "type": "umrah",
+    "tier": "Premium",
+    "price": 2500,
+    "duration": "10 Days",
+    "departure": "Manchester",
+    "departureDate": "2024-06-01",
+    "seats": 15,
+    "includes": ["Airfare", "5-star Hotel", "Transport", "Visa", "Meals"],
+    "excludes": ["Personal Expenses"],
+    "itinerary": [
+      { "day": 1, "title": "Departure", "description": "Flight to Jeddah" },
+      { "day": 2, "title": "Medina", "description": "Visit Prophet's Mosque" },
+      { "day": 3, "title": "Medina Exploration", "description": "Historical tours" },
+      { "day": 4, "title": "Journey to Mecca", "description": "Comfortable travel" },
+      { "day": 5, "title": "Umrah Performance", "description": "Guided rituals" },
+      { "day": 6, "title": "Mecca Activities", "description": "Additional prayers" },
+      { "day": 7, "title": "Free Time", "description": "Personal worship" },
+      { "day": 8, "title": "Optional Tours", "description": "Nearby attractions" },
+      { "day": 9, "title": "Preparation for Return", "description": "Shopping and rest" },
+      { "day": 10, "title": "Return Flight", "description": "Journey home" }
+    ],
+    "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"],
+    "featured": true
+  }
+]

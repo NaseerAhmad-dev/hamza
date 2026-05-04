@@ -1,0 +1,240 @@
+<div class="max-w-7xl mx-auto px-6 md:px-10 py-12">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-10 flex-wrap gap-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-2">⚙ Dashboard</div>
+          <h1 class="font-serif text-4xl font-bold text-neutral-900 dark:text-neutral-100">Admin Panel</h1>
+        </div>
+        <div class="flex gap-3">
+          <a routerLink="/" class="px-5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 text-sm font-medium hover:border-emerald-700 hover:text-emerald-700 transition-colors">
+            ← View Site
+          </a>
+          <button (click)="auth.logout()" class="px-5 py-2.5 rounded-xl bg-neutral-200 dark:bg-neutral-700 text-sm font-medium hover:bg-neutral-300 transition-colors">
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        @for (stat of dashStats(); track stat.label) {
+          <div class="bg-white dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700 rounded-2xl p-6">
+            <div class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">{{ stat.label }}</div>
+            <div class="font-serif text-4xl font-bold" [class.text-emerald-700]="$even" [class.text-yellow-600]="$odd">
+              {{ stat.value }}
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex gap-1 bg-neutral-100 dark:bg-neutral-800 rounded-xl p-1 mb-8 w-fit">
+        @for (tab of tabs; track tab.id) {
+          <button (click)="activeTab.set(tab.id)"
+                  [class.bg-emerald-800]="activeTab() === tab.id"
+                  [class.text-white]="activeTab() === tab.id"
+                  [class.font-bold]="activeTab() === tab.id"
+                  class="px-6 py-2.5 rounded-lg text-sm font-medium text-neutral-500 transition-all duration-200">
+            {{ tab.label }}
+          </button>
+        }
+      </div>
+
+      <!-- Umrah Packages Tab -->
+      @if (activeTab() === 'umrah') {
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Umrah Packages</h3>
+          <button (click)="showAddPkg.set('umrah')"
+                  class="px-5 py-2.5 rounded-xl bg-emerald-800 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors">
+            + Add Package
+          </button>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-100 dark:border-neutral-700 overflow-hidden shadow-luxury">
+          <table class="w-full">
+            <thead>
+              <tr class="bg-neutral-50 dark:bg-neutral-900 text-left">
+                <th class="th">Title</th>
+                <th class="th">Duration</th>
+                <th class="th">Price</th>
+                <th class="th">Departure</th>
+                <th class="th">Seats</th>
+                <th class="th">Featured</th>
+                <th class="th">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (pkg of umrahPkgs(); track pkg.id) {
+                <tr class="border-t border-neutral-100 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-750 transition-colors">
+                  <td class="td font-medium">{{ pkg.title }}</td>
+                  <td class="td text-neutral-500">{{ pkg.duration.split('/')[0].trim() }}</td>
+                  <td class="td font-bold text-emerald-700">{{ '$' + pkg.price.toLocaleString() }}</td>
+                  <td class="td text-neutral-500">{{ pkg.departure }}</td>
+                  <td class="td text-neutral-500">{{ pkg.seats }}</td>
+                  <td class="td">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-bold"
+                          [class.bg-emerald-50]="pkg.featured" [class.text-emerald-700]="pkg.featured"
+                          [class.bg-neutral-100]="!pkg.featured" [class.text-neutral-400]="!pkg.featured">
+                      {{ pkg.featured ? '⭐ Yes' : 'No' }}
+                    </span>
+                  </td>
+                  <td class="td">
+                    <div class="flex gap-2">
+                      <button (click)="toggleFeatured(pkg)" class="icon-btn" title="Toggle Featured">⭐</button>
+                      <button (click)="deletePkg(pkg)" class="icon-btn hover:border-red-400 hover:text-red-500" title="Delete">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+
+      <!-- Hajj Packages Tab -->
+      @if (activeTab() === 'hajj') {
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Hajj Packages</h3>
+          <button (click)="showAddPkg.set('hajj')"
+                  class="px-5 py-2.5 rounded-xl bg-yellow-600 text-white text-sm font-semibold hover:bg-yellow-500 transition-colors">
+            + Add Package
+          </button>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-100 dark:border-neutral-700 overflow-hidden shadow-luxury">
+          <table class="w-full">
+            <thead>
+              <tr class="bg-neutral-50 dark:bg-neutral-900 text-left">
+                <th class="th">Title</th><th class="th">Tier</th><th class="th">Price</th>
+                <th class="th">Departure</th><th class="th">Seats</th><th class="th">Featured</th><th class="th">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (pkg of hajjPkgs(); track pkg.id) {
+                <tr class="border-t border-neutral-100 dark:border-neutral-700 hover:bg-neutral-50 transition-colors">
+                  <td class="td font-medium">{{ pkg.title }}</td>
+                  <td class="td text-neutral-500">{{ pkg.tier || '–' }}</td>
+                  <td class="td font-bold text-yellow-700">{{ '$' + pkg.price.toLocaleString() }}</td>
+                  <td class="td text-neutral-500">{{ pkg.departure }}</td>
+                  <td class="td text-neutral-500">{{ pkg.seats }}</td>
+                  <td class="td">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-bold"
+                          [class.bg-yellow-50]="pkg.featured" [class.text-yellow-700]="pkg.featured"
+                          [class.bg-neutral-100]="!pkg.featured" [class.text-neutral-400]="!pkg.featured">
+                      {{ pkg.featured ? '⭐ Yes' : 'No' }}
+                    </span>
+                  </td>
+                  <td class="td">
+                    <div class="flex gap-2">
+                      <button (click)="toggleFeatured(pkg)" class="icon-btn">⭐</button>
+                      <button (click)="deletePkg(pkg)" class="icon-btn hover:border-red-400 hover:text-red-500">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+
+      <!-- Jobs Tab -->
+      @if (activeTab() === 'jobs') {
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Job Listings</h3>
+          <button class="px-5 py-2.5 rounded-xl bg-emerald-800 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors">
+            + Add Job
+          </button>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-100 dark:border-neutral-700 overflow-hidden shadow-luxury">
+          <table class="w-full">
+            <thead>
+              <tr class="bg-neutral-50 dark:bg-neutral-900 text-left">
+                <th class="th">Title</th><th class="th">Company</th><th class="th">Country</th>
+                <th class="th">Category</th><th class="th">Salary</th><th class="th">Featured</th><th class="th">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (job of jobs(); track job.id) {
+                <tr class="border-t border-neutral-100 dark:border-neutral-700 hover:bg-neutral-50 transition-colors">
+                  <td class="td font-medium flex items-center gap-3">
+                    <img [src]="job.logo" [alt]="job.company + ' logo'"
+                         class="w-10 h-10 rounded-lg object-cover" />
+                    <span>{{ job.title }}</span>
+                  </td>
+                  <td class="td text-neutral-500">{{ job.company }}</td>
+                  <td class="td text-neutral-500">{{ job.country }}</td>
+                  <td class="td text-neutral-500">{{ job.category }}</td>
+                  <td class="td font-bold text-emerald-700">{{ job.salary }}</td>
+                  <td class="td">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-bold"
+                          [class.bg-emerald-50]="job.featured" [class.text-emerald-700]="job.featured"
+                          [class.bg-neutral-100]="!job.featured" [class.text-neutral-400]="!job.featured">
+                      {{ job.featured ? '⭐ Yes' : 'No' }}
+                    </span>
+                  </td>
+                  <td class="td">
+                    <div class="flex gap-2">
+                      <button (click)="toggleJobFeatured(job)" class="icon-btn">⭐</button>
+                      <button (click)="deleteJob(job)" class="icon-btn hover:border-red-400 hover:text-red-500">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+
+      <!-- Add Package Modal -->
+      @if (showAddPkg()) {
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+             (click)="showAddPkg.set(null)">
+          <div class="bg-white dark:bg-neutral-800 rounded-3xl p-8 max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto"
+               (click)="$event.stopPropagation()">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="font-serif text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+                + Add {{ showAddPkg() === 'hajj' ? 'Hajj' : 'Umrah' }} Package
+              </h2>
+              <button (click)="showAddPkg.set(null)" class="text-neutral-400 hover:text-neutral-700 text-xl">✕</button>
+            </div>
+            <form [formGroup]="pkgForm" (ngSubmit)="addPackage()" class="flex flex-col gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="label-sm">Package Title *</label>
+                <input formControlName="title" placeholder="e.g. Premium Umrah — 14 Days" class="input-sm">
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="label-sm">Price ($) *</label>
+                  <input formControlName="price" type="number" placeholder="1999" class="input-sm">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="label-sm">Duration *</label>
+                  <input formControlName="duration" placeholder="14 Days / 13 Nights" class="input-sm">
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="label-sm">Departure City</label>
+                  <input formControlName="departure" placeholder="London" class="input-sm">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="label-sm">Seats</label>
+                  <input formControlName="seats" type="number" placeholder="30" class="input-sm">
+                </div>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="label-sm">Includes (comma-separated)</label>
+                <input formControlName="includes" placeholder="Flights, Hotel, Ziyarat" class="input-sm">
+              </div>
+              <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                <input type="checkbox" formControlName="featured" class="accent-emerald-700 w-4 h-4">
+                Mark as Featured
+              </label>
+              <button type="submit"
+                      class="py-3.5 rounded-xl bg-emerald-800 text-white font-bold text-sm hover:bg-emerald-700 transition-colors mt-2">
+                Add Package
+              </button>
+            </form>
+          </div>
+        </div>
+      }
+    </div>
