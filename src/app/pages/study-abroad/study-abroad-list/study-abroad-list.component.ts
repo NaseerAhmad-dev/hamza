@@ -19,7 +19,7 @@ import { STUDY_PROGRAMS, StudyProgram } from '../../../core/data/study-programs.
           Study Abroad Programs
         </h1>
         <p class="text-blue-200 text-lg max-w-2xl mx-auto mb-10">
-          From MBBS to MBA — we guide Pakistani students to world-class universities across the globe with end-to-end support.
+          From MBBS to MBA — we guide students to world-class universities across the globe with end-to-end support.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
           @for (stat of stats; track stat.label) {
