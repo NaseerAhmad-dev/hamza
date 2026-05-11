@@ -111,11 +111,11 @@ export class NavbarComponent {
   menuOpen = signal(false);
 
   navLinks = [
-    { path: '/',       label: 'Home',    icon: '🏠' },
-    { path: '/umrah',  label: 'Umrah',   icon: '🕌' },
-    { path: '/hajj',   label: 'Hajj',    icon: '☪'  },
-    { path: '/jobs',   label: 'Jobs',    icon: '💼' },
-    { path: '/about',  label: 'About',   icon: 'ℹ'  },
-    { path: '/contact',label: 'Contact', icon: '📞' },
+    { path: '/',              label: 'Home',          icon: '🏠' },
+    { path: '/umrah',         label: 'Umrah',         icon: '🕌' },
+    { path: '/study-abroad',  label: 'Study Abroad',  icon: '🎓' },
+    { path: '/jobs',          label: 'Jobs',          icon: '💼' },
+    { path: '/about',         label: 'About',         icon: 'ℹ'  },
+    { path: '/contact',       label: 'Contact',       icon: '📞' },
   ];
 }

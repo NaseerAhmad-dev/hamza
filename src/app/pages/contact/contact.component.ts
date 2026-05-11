@@ -63,7 +63,7 @@ import { JobsService } from '../../core/services/jobs.service';
             <label class="label">Interested In</label>
             <select formControlName="interest" class="input-f">
               <option>Umrah Package</option>
-              <option>Hajj Package</option>
+              <option>Study Abroad</option>
               <option>Overseas Job</option>
               <option>General Inquiry</option>
             </select>

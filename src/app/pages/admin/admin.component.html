@@ -45,7 +45,7 @@
       @if (activeTab() === 'umrah') {
         <div class="flex items-center justify-between mb-5">
           <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Umrah Packages</h3>
-          <button (click)="showAddPkg.set('umrah')"
+          <button (click)="showAddPkg.set(true)"
                   class="px-5 py-2.5 rounded-xl bg-emerald-800 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors">
             + Add Package
           </button>
@@ -82,51 +82,6 @@
                     <div class="flex gap-2">
                       <button (click)="toggleFeatured(pkg)" class="icon-btn" title="Toggle Featured">⭐</button>
                       <button (click)="deletePkg(pkg)" class="icon-btn hover:border-red-400 hover:text-red-500" title="Delete">🗑</button>
-                    </div>
-                  </td>
-                </tr>
-              }
-            </tbody>
-          </table>
-        </div>
-      }
-
-      <!-- Hajj Packages Tab -->
-      @if (activeTab() === 'hajj') {
-        <div class="flex items-center justify-between mb-5">
-          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Hajj Packages</h3>
-          <button (click)="showAddPkg.set('hajj')"
-                  class="px-5 py-2.5 rounded-xl bg-yellow-600 text-white text-sm font-semibold hover:bg-yellow-500 transition-colors">
-            + Add Package
-          </button>
-        </div>
-        <div class="bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-100 dark:border-neutral-700 overflow-hidden shadow-luxury">
-          <table class="w-full">
-            <thead>
-              <tr class="bg-neutral-50 dark:bg-neutral-900 text-left">
-                <th class="th">Title</th><th class="th">Tier</th><th class="th">Price</th>
-                <th class="th">Departure</th><th class="th">Seats</th><th class="th">Featured</th><th class="th">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (pkg of hajjPkgs(); track pkg.id) {
-                <tr class="border-t border-neutral-100 dark:border-neutral-700 hover:bg-neutral-50 transition-colors">
-                  <td class="td font-medium">{{ pkg.title }}</td>
-                  <td class="td text-neutral-500">{{ pkg.tier || '–' }}</td>
-                  <td class="td font-bold text-yellow-700">{{ '$' + pkg.price.toLocaleString() }}</td>
-                  <td class="td text-neutral-500">{{ pkg.departure }}</td>
-                  <td class="td text-neutral-500">{{ pkg.seats }}</td>
-                  <td class="td">
-                    <span class="px-2.5 py-1 rounded-full text-xs font-bold"
-                          [class.bg-yellow-50]="pkg.featured" [class.text-yellow-700]="pkg.featured"
-                          [class.bg-neutral-100]="!pkg.featured" [class.text-neutral-400]="!pkg.featured">
-                      {{ pkg.featured ? '⭐ Yes' : 'No' }}
-                    </span>
-                  </td>
-                  <td class="td">
-                    <div class="flex gap-2">
-                      <button (click)="toggleFeatured(pkg)" class="icon-btn">⭐</button>
-                      <button (click)="deletePkg(pkg)" class="icon-btn hover:border-red-400 hover:text-red-500">🗑</button>
                     </div>
                   </td>
                 </tr>
@@ -187,14 +142,14 @@
       <!-- Add Package Modal -->
       @if (showAddPkg()) {
         <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-6"
-             (click)="showAddPkg.set(null)">
+             (click)="showAddPkg.set(false)">
           <div class="bg-white dark:bg-neutral-800 rounded-3xl p-8 max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto"
                (click)="$event.stopPropagation()">
             <div class="flex items-center justify-between mb-6">
               <h2 class="font-serif text-2xl font-bold text-neutral-900 dark:text-neutral-100">
-                + Add {{ showAddPkg() === 'hajj' ? 'Hajj' : 'Umrah' }} Package
+                + Add Umrah Package
               </h2>
-              <button (click)="showAddPkg.set(null)" class="text-neutral-400 hover:text-neutral-700 text-xl">✕</button>
+              <button (click)="showAddPkg.set(false)" class="text-neutral-400 hover:text-neutral-700 text-xl">✕</button>
             </div>
             <form [formGroup]="pkgForm" (ngSubmit)="addPackage()" class="flex flex-col gap-4">
               <div class="flex flex-col gap-1.5">

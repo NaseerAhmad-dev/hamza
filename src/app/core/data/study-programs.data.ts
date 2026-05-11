@@ -1,0 +1,303 @@
+export interface StudyUniversity {
+  name: string;
+  country: string;
+  fee: string;
+}
+
+export interface StudyProgram {
+  id: string;
+  title: string;
+  fullName: string;
+  category: string;
+  duration: string;
+  countries: string[];
+  description: string;
+  annualFee: string;
+  icon: string;
+  featured: boolean;
+  highlights: string[];
+  overview: string;
+  eligibility: string[];
+  recognition: string[];
+  universities: StudyUniversity[];
+  process: string[];
+}
+
+export const STUDY_PROGRAMS: StudyProgram[] = [
+  {
+    id: 'mbbs',
+    title: 'MBBS',
+    fullName: 'Bachelor of Medicine & Bachelor of Surgery',
+    category: 'Medical',
+    duration: '5–6 Years',
+    countries: ['Russia', 'China', 'Georgia', 'Kazakhstan', 'Bangladesh'],
+    description: 'Study medicine abroad at WHO & PMDC recognized universities with affordable fees and quality education.',
+    annualFee: '3,000 – 8,000 USD',
+    icon: '🏥',
+    featured: true,
+    highlights: ['WHO & PMDC Recognized', 'English Medium', 'Low Living Cost', 'Easy Admission'],
+    overview: 'MBBS (Bachelor of Medicine and Bachelor of Surgery) is the most sought-after medical degree worldwide. Studying MBBS abroad offers world-class education at a fraction of the cost compared to private medical colleges in Pakistan. Our partner universities are recognized by WHO, PMDC, and other international medical councils, ensuring your degree is valid for practice both in Pakistan and internationally.',
+    eligibility: [
+      'Minimum 60% marks in FSc (Pre-Medical) or equivalent',
+      'MDCAT qualified (for Pakistan recognition)',
+      'Age: 17–25 years at time of admission',
+      'Valid Pakistani passport',
+      'IELTS 5.5+ or English proficiency certificate (for English-medium universities)',
+      'Medical fitness certificate from a registered doctor',
+    ],
+    recognition: ['WHO', 'PMDC', 'GMC', 'AMC', 'MCI'],
+    universities: [
+      { name: 'Kazan Federal University', country: 'Russia', fee: '4,500 USD/year' },
+      { name: 'Peoples Friendship University (RUDN)', country: 'Russia', fee: '5,000 USD/year' },
+      { name: 'Tbilisi State Medical University', country: 'Georgia', fee: '4,000 USD/year' },
+      { name: 'Jilin University', country: 'China', fee: '3,500 USD/year' },
+      { name: 'Al-Farabi Kazakh National University', country: 'Kazakhstan', fee: '3,000 USD/year' },
+    ],
+    process: [
+      'Submit application with academic documents and passport copy',
+      'Receive admission letter from partner university',
+      'Apply for student visa at respective embassy',
+      'Complete pre-departure orientation with our counsellors',
+      'Travel and complete registration at university',
+    ],
+  },
+  {
+    id: 'bds',
+    title: 'BDS',
+    fullName: 'Bachelor of Dental Surgery',
+    category: 'Medical',
+    duration: '5 Years',
+    countries: ['Russia', 'China', 'Georgia'],
+    description: 'Pursue dental surgery at top international universities with global recognition and hands-on clinical training.',
+    annualFee: '4,000 – 7,000 USD',
+    icon: '🦷',
+    featured: true,
+    highlights: ['International Recognition', 'Modern Dental Labs', 'Clinical Training', 'Hostel Facility'],
+    overview: 'BDS (Bachelor of Dental Surgery) abroad offers exceptional clinical training with modern dental laboratories and internationally recognized degrees. Students gain hands-on experience with diverse patient populations while studying in world-class facilities. Graduates are eligible to sit the PMDC licensing exam upon return to Pakistan.',
+    eligibility: [
+      'Minimum 60% marks in FSc (Pre-Medical)',
+      'MDCAT qualified (for Pakistan recognition)',
+      'Age: 17–25 years',
+      'Valid passport',
+      'Medical fitness certificate',
+    ],
+    recognition: ['PMDC', 'GDC (UK)', 'DCI (India)'],
+    universities: [
+      { name: 'Smolensk State Medical University', country: 'Russia', fee: '4,500 USD/year' },
+      { name: 'Tbilisi State Medical University', country: 'Georgia', fee: '4,200 USD/year' },
+      { name: 'Hubei University of Medicine', country: 'China', fee: '4,000 USD/year' },
+    ],
+    process: [
+      'Submit application with FSc/Pre-Medical documents',
+      'Receive conditional or unconditional offer letter',
+      'Obtain student visa from respective embassy',
+      'Attend pre-departure briefing session',
+      'Fly and complete registration at university',
+    ],
+  },
+  {
+    id: 'bsc-nursing',
+    title: 'BSc Nursing',
+    fullName: 'Bachelor of Science in Nursing',
+    category: 'Medical',
+    duration: '4 Years',
+    countries: ['UK', 'Germany', 'Australia', 'China'],
+    description: 'Build a globally recognized nursing career with internationally accredited degrees and strong employment prospects.',
+    annualFee: '5,000 – 12,000 USD',
+    icon: '💊',
+    featured: false,
+    highlights: ['High Demand Career', 'Work While Studying', 'PR Pathway', 'Scholarships Available'],
+    overview: 'Nursing is one of the most in-demand professions globally. Studying BSc Nursing abroad opens doors to excellent career opportunities in top healthcare systems. Many countries offer pathways to permanent residency for qualified nurses, making it not just a degree but a gateway to a better life.',
+    eligibility: [
+      'Minimum 60% in FSc (Pre-Medical) or equivalent',
+      'IELTS 6.0+ (for English-speaking countries)',
+      'Age: 17–28 years',
+      'Medical fitness certificate',
+      'Police clearance certificate',
+    ],
+    recognition: ['NMC (UK)', 'AHPRA (Australia)', 'German Nursing Council'],
+    universities: [
+      { name: 'University of Wolverhampton', country: 'UK', fee: '9,000 GBP/year' },
+      { name: 'Charité – Universitätsmedizin Berlin', country: 'Germany', fee: '500 EUR/semester' },
+      { name: 'Griffith University', country: 'Australia', fee: '12,000 AUD/year' },
+      { name: 'Capital Medical University', country: 'China', fee: '5,000 USD/year' },
+    ],
+    process: [
+      'Check entry requirements and gather academic documents',
+      'Apply to shortlisted universities with personal statement',
+      'Receive offer letter',
+      'Apply for student visa',
+      'Travel and begin studies',
+    ],
+  },
+  {
+    id: 'bsc-cs',
+    title: 'BSc Computer Science',
+    fullName: 'Bachelor of Science in Computer Science',
+    category: 'Engineering & IT',
+    duration: '4 Years',
+    countries: ['Germany', 'Malaysia', 'China', 'Russia'],
+    description: 'Tech-focused programs with industry connections, coding boot camps, and strong graduate employment rates.',
+    annualFee: '2,500 – 10,000 USD',
+    icon: '💻',
+    featured: false,
+    highlights: ['Tech Industry Access', 'Research Labs', 'Internship Programs', 'Affordable Fees'],
+    overview: 'Computer Science is the backbone of the digital economy. Studying BSc CS abroad provides access to cutting-edge research facilities, industry partnerships with global tech giants, and a strong alumni network that opens doors to careers at top tech companies worldwide. Germany in particular offers tuition-free programs at world-ranked institutions.',
+    eligibility: [
+      'Minimum 55% in FSc (Pre-Engineering or Computer Science)',
+      'IELTS 5.5+ (for English-medium programs)',
+      'Mathematics as a compulsory subject',
+      'Age: 17–24 years',
+    ],
+    recognition: ['ACM Accredited', 'IEEE Partnership Programs'],
+    universities: [
+      { name: 'Technical University of Munich (TUM)', country: 'Germany', fee: 'No tuition (~300 EUR/semester)' },
+      { name: 'Universiti Malaya', country: 'Malaysia', fee: '3,500 USD/year' },
+      { name: 'Belarusian State University', country: 'Russia', fee: '2,500 USD/year' },
+      { name: 'Beijing Institute of Technology', country: 'China', fee: '3,000 USD/year' },
+    ],
+    process: [
+      'Prepare academic transcripts and technical portfolio',
+      'Apply online to shortlisted universities',
+      'Appear for interview or language test (if required)',
+      'Receive admission letter',
+      'Apply for student visa and travel',
+    ],
+  },
+  {
+    id: 'engineering',
+    title: 'BE / BSc Engineering',
+    fullName: 'Bachelor of Engineering',
+    category: 'Engineering & IT',
+    duration: '4–5 Years',
+    countries: ['Germany', 'Russia', 'China', 'Malaysia'],
+    description: 'Engineering degrees across Civil, Mechanical, Electrical and more from globally accredited institutions.',
+    annualFee: '2,000 – 9,000 USD',
+    icon: '⚙️',
+    featured: false,
+    highlights: ['Global Accreditation', 'Industry Projects', 'Multiple Disciplines', 'Job Placement Support'],
+    overview: 'Engineering programs abroad offer state-of-the-art laboratories, industry-sponsored projects, and internship opportunities with multinational corporations. Available disciplines include Civil, Mechanical, Electrical, Chemical, and Software Engineering. Graduates are in high demand globally and degrees are recognized under the Washington Accord.',
+    eligibility: [
+      'Minimum 55% in FSc (Pre-Engineering)',
+      'Mathematics and Physics as core subjects',
+      'IELTS 5.5+ or equivalent English test',
+      'Age: 17–25 years',
+    ],
+    recognition: ['Washington Accord', 'EUR-ACE', 'ABET'],
+    universities: [
+      { name: 'RWTH Aachen University', country: 'Germany', fee: 'No tuition (~300 EUR/semester)' },
+      { name: 'Moscow Polytechnic University', country: 'Russia', fee: '3,000 USD/year' },
+      { name: 'Universiti Teknologi Malaysia', country: 'Malaysia', fee: '4,000 USD/year' },
+      { name: 'Harbin Institute of Technology', country: 'China', fee: '3,500 USD/year' },
+    ],
+    process: [
+      'Choose your engineering discipline (Civil, Mechanical, Electrical, etc.)',
+      'Prepare FSc/Matric documents and transcripts',
+      'Apply to shortlisted universities',
+      'Receive admission offer letter',
+      'Obtain student visa and travel',
+    ],
+  },
+  {
+    id: 'mba',
+    title: 'MBA',
+    fullName: 'Master of Business Administration',
+    category: 'Business',
+    duration: '1–2 Years',
+    countries: ['UK', 'Germany', 'Malaysia', 'China'],
+    description: 'Accelerate your career with globally recognized MBA programs from top international business schools.',
+    annualFee: '8,000 – 25,000 USD',
+    icon: '📊',
+    featured: true,
+    highlights: ['Global Alumni Network', 'Executive Programs', 'Finance Specialization', 'Fast-Track Options'],
+    overview: 'An MBA from an international business school gives you a competitive edge in the global job market. Programs cover strategic management, finance, marketing, entrepreneurship, and leadership. Many programs include consulting projects with multinational companies and placement assistance in leading corporations.',
+    eligibility: [
+      "Bachelor's degree in any discipline (minimum 2.5 GPA / 55%)",
+      '2+ years of work experience (preferred for Executive MBA)',
+      'IELTS 6.5+ or TOEFL 90+',
+      'GMAT or GRE (required for top-ranked schools)',
+      'Statement of Purpose and two Letters of Recommendation',
+    ],
+    recognition: ['AACSB', 'EQUIS', 'AMBA Triple Accreditation'],
+    universities: [
+      { name: 'University of Manchester', country: 'UK', fee: '25,000 GBP/year' },
+      { name: 'Mannheim Business School', country: 'Germany', fee: '18,000 EUR/year' },
+      { name: 'University of Malaya', country: 'Malaysia', fee: '8,000 USD/year' },
+      { name: 'Shanghai Jiao Tong University', country: 'China', fee: '10,000 USD/year' },
+    ],
+    process: [
+      'Prepare GMAT/GRE scores (check school requirements)',
+      'Write Statement of Purpose and gather professional references',
+      'Submit application to shortlisted business schools',
+      'Attend interview if shortlisted',
+      'Receive admission letter and apply for student visa',
+    ],
+  },
+  {
+    id: 'bsc-pharmacy',
+    title: 'BSc Pharmacy',
+    fullName: 'Bachelor of Science in Pharmacy',
+    category: 'Medical',
+    duration: '5 Years',
+    countries: ['Russia', 'China', 'Georgia', 'Bangladesh'],
+    description: 'Pharmacy programs with strong clinical and industrial training at recognized international universities.',
+    annualFee: '3,000 – 6,000 USD',
+    icon: '💉',
+    featured: false,
+    highlights: ['Pharmacy Council Recognized', 'Lab Training', 'Research Opportunities', 'Hostel Available'],
+    overview: 'BSc Pharmacy abroad combines theoretical knowledge with practical laboratory training in pharmaceutical sciences. The curriculum covers pharmacology, pharmaceutical chemistry, clinical pharmacy, and drug regulatory affairs. Graduates pursue careers in pharmaceutical companies, hospitals, research institutes, and regulatory bodies worldwide.',
+    eligibility: [
+      'Minimum 60% in FSc (Pre-Medical or Pre-Engineering)',
+      'Chemistry and Biology as core subjects',
+      'Age: 17–24 years',
+      'Medical fitness certificate',
+    ],
+    recognition: ['PMDC', 'PCP (Pharmacy Council of Pakistan)', 'Royal Pharmaceutical Society'],
+    universities: [
+      { name: 'Volgograd State Medical University', country: 'Russia', fee: '3,500 USD/year' },
+      { name: 'Tbilisi State Medical University', country: 'Georgia', fee: '3,000 USD/year' },
+      { name: 'Shenyang Pharmaceutical University', country: 'China', fee: '3,200 USD/year' },
+      { name: 'BRAC University', country: 'Bangladesh', fee: '2,800 USD/year' },
+    ],
+    process: [
+      'Prepare FSc documents and academic transcripts',
+      'Submit application to partner universities',
+      'Receive admission letter',
+      'Apply for student visa',
+      'Travel and complete registration at university',
+    ],
+  },
+  {
+    id: 'law',
+    title: 'LLB / LLM',
+    fullName: 'Bachelor / Master of Laws',
+    category: 'Law',
+    duration: '3–5 Years',
+    countries: ['UK', 'Germany', 'Malaysia'],
+    description: 'Study law at prestigious international institutions with strong alumni networks and career support.',
+    annualFee: '6,000 – 20,000 USD',
+    icon: '⚖️',
+    featured: false,
+    highlights: ['Bar Council Recognition', 'Moot Court Practice', 'International Law', 'Scholarships Available'],
+    overview: 'Law programs abroad provide exposure to international legal frameworks, commercial law, human rights, and comparative law. Graduates are well-prepared for careers in legal practice, corporate law, international organizations, and judicial services. Many universities offer mooting competitions and placements at top law firms.',
+    eligibility: [
+      'Minimum 55% marks in A-Levels or FSc (any stream)',
+      'IELTS 6.5+ (for UK and other English-speaking countries)',
+      'Strong analytical and essay writing skills',
+      'Age: 17–28 years',
+    ],
+    recognition: ['Bar Council (UK)', 'Law Society', 'International Bar Association'],
+    universities: [
+      { name: 'University of Leicester', country: 'UK', fee: '14,000 GBP/year' },
+      { name: 'Humboldt University of Berlin', country: 'Germany', fee: 'No tuition (~320 EUR/semester)' },
+      { name: 'University of Malaya', country: 'Malaysia', fee: '6,000 USD/year' },
+    ],
+    process: [
+      'Prepare academic documents and personal statement',
+      'Apply through UCAS (for UK) or directly to university',
+      'Receive conditional or unconditional offer',
+      'Submit proof of English proficiency (IELTS/TOEFL)',
+      'Apply for student visa and travel',
+    ],
+  },
+];

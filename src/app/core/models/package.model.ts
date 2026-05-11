@@ -6,7 +6,7 @@ export interface ItineraryDay {
   description: string;
 }
 
-export type PackageType = 'umrah' | 'hajj';
+export type PackageType = 'umrah';
 export type PackageTier = 'Economy' | 'Standard' | 'Premium' | 'VIP';
 
 export interface Package {
