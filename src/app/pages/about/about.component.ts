@@ -37,8 +37,8 @@ import { RouterLink } from '@angular/router';
           professionals with global opportunities.
         </p>
         <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
-          Over 15 years, we have served more than 1,200 Umrah pilgrims and 500+ Hajj groups, earning
-          the trust of families across the UK, Europe, and South Asia.
+          Over 15 years, we have served more than 1,200 Umrah pilgrims and helped 500+ students pursue
+          education abroad, earning the trust of families across the UK, Europe, and South Asia.
         </p>
         <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed mb-8">
           Our recruitment division has placed over 300 professionals in top-tier roles across the Gulf,
@@ -105,7 +105,7 @@ import { RouterLink } from '@angular/router';
         <div class="absolute inset-0 geo-bg opacity-5"></div>
         <div class="relative z-10">
           <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Ready to Journey with Us?</h2>
-          <p class="text-white/70 max-w-lg mx-auto mb-8">Plan your Umrah, Hajj, or explore career opportunities with Hamza Tour and Travels.</p>
+          <p class="text-white/70 max-w-lg mx-auto mb-8">Plan your Umrah, study abroad, or explore career opportunities with Hamza Tour and Travels.</p>
           <div class="flex flex-wrap gap-4 justify-center">
             <a routerLink="/umrah" class="px-8 py-4 rounded-full bg-yellow-400 text-neutral-900 font-bold text-sm hover:bg-yellow-300 transition-colors">
               Browse Packages
@@ -125,13 +125,13 @@ export class AboutComponent {
   stats = [
     { value: '15+',    label: 'Years of Service'  },
     { value: '1,200+', label: 'Umrah Pilgrims'    },
-    { value: '500+',   label: 'Hajjis Served'     },
+    { value: '500+',   label: 'Students Placed'   },
     { value: '300+',   label: 'Jobs Placed'       },
   ];
 
   team = [
     { avatar: '👨‍💼', name: 'Sheikh Abdullah Rahman', role: 'Founder & CEO' },
-    { avatar: '👩‍💼', name: 'Fatima Al-Zahra',        role: 'Head of Hajj Operations' },
+    { avatar: '👩‍💼', name: 'Fatima Al-Zahra',        role: 'Head of Education Services' },
     { avatar: '👨‍💼', name: 'Yusuf Mahmood',           role: 'Umrah Coordinator' },
     { avatar: '👩‍💼', name: 'Sara Hussain',            role: 'Recruitment Manager' },
     { avatar: '👨‍💼', name: 'Omar Farooq',             role: 'Islamic Scholar & Guide' },

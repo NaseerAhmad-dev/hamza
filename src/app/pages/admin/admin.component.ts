@@ -7,7 +7,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { Package } from '../../core/models/package.model';
 import { Job } from '../../core/models/job.model';
 
-type AdminTab = 'umrah' | 'hajj' | 'jobs';
+type AdminTab = 'umrah' | 'jobs';
 
 @Component({
   selector: 'app-admin',
@@ -35,14 +35,12 @@ export class AdminComponent implements OnInit {
   private fb = inject(FormBuilder);
 
   umrahPkgs = signal<Package[]>([]);
-  hajjPkgs  = signal<Package[]>([]);
   jobs      = signal<Job[]>([]);
   activeTab = signal<AdminTab>('umrah');
-  showAddPkg = signal<'umrah' | 'hajj' | null>(null);
+  showAddPkg = signal(false);
 
   tabs: { id: AdminTab; label: string }[] = [
     { id: 'umrah', label: 'Umrah Packages' },
-    { id: 'hajj',  label: 'Hajj Packages'  },
     { id: 'jobs',  label: 'Jobs'           },
   ];
 
@@ -59,15 +57,14 @@ export class AdminComponent implements OnInit {
   dashStats() {
     return [
       { label: 'Umrah Packages', value: this.umrahPkgs().length },
-      { label: 'Hajj Packages',  value: this.hajjPkgs().length },
+      { label: 'Study Programs', value: 8 },
       { label: 'Active Jobs',    value: this.jobs().length },
-      { label: 'Total Packages', value: this.umrahPkgs().length + this.hajjPkgs().length },
+      { label: 'Total Packages', value: this.umrahPkgs().length },
     ];
   }
 
   ngOnInit(): void {
     this.pkgSvc.getPackagesByType('umrah').subscribe(p => this.umrahPkgs.set(p));
-    this.pkgSvc.getPackagesByType('hajj').subscribe(p => this.hajjPkgs.set(p));
     this.jobSvc.getJobs().subscribe(j => this.jobs.set(j));
   }
 
@@ -89,10 +86,9 @@ export class AdminComponent implements OnInit {
 
   async addPackage(): Promise<void> {
     if (this.pkgForm.invalid) return;
-    const type = this.showAddPkg()!;
     const v = this.pkgForm.value;
     await this.pkgSvc.addPackage({
-      type,
+      type: 'umrah',
       title:       v.title!,
       price:       v.price!,
       duration:    v.duration!,
@@ -106,6 +102,6 @@ export class AdminComponent implements OnInit {
       featured:    v.featured!,
     });
     this.pkgForm.reset({ seats: 30, featured: false });
-    this.showAddPkg.set(null);
+    this.showAddPkg.set(false);
   }
 }

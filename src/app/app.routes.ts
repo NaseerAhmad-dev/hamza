@@ -18,14 +18,14 @@ export const routes: Routes = [
       import('./pages/umrah/umrah-detail/umrah-detail.component').then(m => m.UmrahDetailComponent),
   },
   {
-    path: 'hajj',
+    path: 'study-abroad',
     loadComponent: () =>
-      import('./pages/hajj/hajj-list/hajj-list.component').then(m => m.HajjListComponent),
+      import('./pages/study-abroad/study-abroad-list/study-abroad-list.component').then(m => m.StudyAbroadListComponent),
   },
   {
-    path: 'hajj/:id',
+    path: 'study-abroad/:id',
     loadComponent: () =>
-      import('./pages/hajj/hajj-detail/hajj-detail.component').then(m => m.HajjDetailComponent),
+      import('./pages/study-abroad/study-abroad-detail/study-abroad-detail.component').then(m => m.StudyAbroadDetailComponent),
   },
   {
     path: 'jobs',

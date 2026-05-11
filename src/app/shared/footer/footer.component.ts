@@ -19,7 +19,7 @@ import { RouterLink } from '@angular/router';
               <span class="font-serif font-bold text-emerald-800 dark:text-emerald-400 text-xl">Hamza Tour and Travels</span>
             </div>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm mb-6">
-              Your trusted partner for Umrah, Hajj pilgrimages and overseas recruitment since 2008.
+              Your trusted partner for Umrah pilgrimages, international education, and overseas recruitment since 2008.
               Licensed by the Ministry of Religious Affairs and IATA certified.
             </p>
             <div class="flex gap-3">
@@ -34,12 +34,12 @@ import { RouterLink } from '@angular/router';
             </div>
           </div>
 
-          <!-- Pilgrimage Links -->
+          <!-- Services Links -->
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-4">Pilgrimage</h4>
+            <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-4">Services</h4>
             <ul class="flex flex-col gap-3">
               <li><a routerLink="/umrah" class="text-sm text-neutral-600 dark:text-neutral-300 hover:text-emerald-700 transition-colors">Umrah Packages</a></li>
-              <li><a routerLink="/hajj"  class="text-sm text-neutral-600 dark:text-neutral-300 hover:text-emerald-700 transition-colors">Hajj Packages</a></li>
+              <li><a routerLink="/study-abroad" class="text-sm text-neutral-600 dark:text-neutral-300 hover:text-emerald-700 transition-colors">Study Abroad</a></li>
               <li><a routerLink="/contact" class="text-sm text-neutral-600 dark:text-neutral-300 hover:text-emerald-700 transition-colors">Custom Package</a></li>
               <li><a routerLink="/contact" class="text-sm text-neutral-600 dark:text-neutral-300 hover:text-emerald-700 transition-colors">Group Bookings</a></li>
               <li><a routerLink="/contact" class="text-sm text-neutral-600 dark:text-neutral-300 hover:text-emerald-700 transition-colors">Visa Services</a></li>

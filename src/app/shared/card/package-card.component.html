@@ -5,25 +5,21 @@
 
       <!-- Image -->
       <div class="relative h-48 overflow-hidden"
-           [style.background]="package.type === 'hajj'
-             ? 'linear-gradient(135deg,#7c4800,#d4860a)'
-             : 'linear-gradient(135deg,#022c20,#065F46)'">
+           style="background: linear-gradient(135deg,#022c20,#065F46)">
 
         @if (package.images.length) {
           <img [src]="package.images[0]" [alt]="package.title"
                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         } @else {
           <div class="w-full h-full flex items-center justify-center text-7xl select-none">
-            {{ package.type === 'hajj' ? '🕋' : '🕌' }}
+            🕌
           </div>
         }
 
         <!-- Type Badge -->
         <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold
-                     tracking-wider uppercase text-white"
-              [class.bg-emerald-800]="package.type === 'umrah'"
-              [class.bg-yellow-600]="package.type === 'hajj'">
-          {{ package.type === 'umrah' ? '🕌 Umrah' : '☪ Hajj' }}
+                     tracking-wider uppercase text-white bg-emerald-800">
+          🕌 Umrah
         </span>
 
         @if (package.featured) {

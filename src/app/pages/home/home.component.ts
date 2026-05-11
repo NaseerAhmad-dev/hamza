@@ -6,6 +6,7 @@ import { PackageCardComponent } from '../../shared/card/package-card.component';
 import { JobCardComponent } from '../../shared/card/job-card.component';
 import { Package } from '../../core/models/package.model';
 import { Job } from '../../core/models/job.model';
+import { STUDY_PROGRAMS, StudyProgram } from '../../core/data/study-programs.data';
 
 @Component({
   selector: 'app-home',
@@ -30,14 +31,15 @@ export class HomeComponent implements OnInit {
   private jobSvc = inject(JobsService);
 
   featuredUmrah = signal<Package[]>([]);
-  featuredHajj  = signal<Package[]>([]);
   featuredJobs  = signal<Job[]>([]);
 
+  featuredStudyPrograms: StudyProgram[] = STUDY_PROGRAMS.filter(p => p.featured);
+
   stats = [
-    { value: '1,200+', label: 'Umrah Pilgrims' },
-    { value: '500+',   label: 'Hajjis Served'  },
-    { value: '300+',   label: 'Jobs Placed'    },
-    { value: '15+',    label: 'Years Experience'},
+    { value: '1,200+', label: 'Umrah Pilgrims'   },
+    { value: '500+',   label: 'Students Placed'  },
+    { value: '300+',   label: 'Jobs Placed'       },
+    { value: '15+',    label: 'Years Experience'  },
   ];
 
   features = [
@@ -63,7 +65,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.pkgSvc.getFeaturedPackages('umrah').subscribe(p => this.featuredUmrah.set(p));
-    this.pkgSvc.getFeaturedPackages('hajj').subscribe(p => this.featuredHajj.set(p));
     this.jobSvc.getFeaturedJobs().subscribe(j => this.featuredJobs.set(j));
   }
 
