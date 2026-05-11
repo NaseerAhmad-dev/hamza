@@ -94,8 +94,14 @@ import { RouterLink } from '@angular/router';
 
         <!-- Credit -->
         <div class="text-center pt-4">
-          <p class="text-xs text-neutral-400">
-            Designed and developed with ❤️ by Naseer Ahmad
+          <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            Designed and developed with ❤️ by
+            <a href="https://naseerahmaddev.netlify.app/"
+               target="_blank" rel="noopener noreferrer"
+               class="font-semibold text-emerald-700 dark:text-emerald-400 hover:text-emerald-600 dark:hover:text-emerald-300
+                      transition-colors duration-200 underline underline-offset-2">
+              Naseer Ahmad
+            </a>
           </p>
         </div>
 
