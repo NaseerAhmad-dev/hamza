@@ -110,7 +110,7 @@ export class FooterComponent {
     { label: 'Facebook',  icon: 'f', href: '#' },
     { label: 'Instagram', icon: '📷', href: '#' },
     { label: 'Twitter',   icon: '𝕏', href: '#' },
-    { label: 'WhatsApp',  icon: '💬', href: 'https://wa.me/447700900123' },
+    { label: 'WhatsApp',  icon: '💬', href: 'https://wa.me/917006063890' },
     { label: 'YouTube',   icon: '▶', href: '#' },
   ];
 }

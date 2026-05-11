@@ -17,7 +17,7 @@ import { ThemeService } from './core/services/theme.service';
 
     <!-- WhatsApp FAB -->
     <a
-      href="https://wa.me/447700900123"
+      href="https://wa.me/917006063890"
       target="_blank"
       class="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white
              flex items-center justify-center text-2xl shadow-lg hover:scale-110
