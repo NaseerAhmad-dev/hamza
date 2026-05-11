@@ -41,7 +41,7 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
       'Minimum 60% marks in FSc (Pre-Medical) or equivalent',
       'MDCAT qualified (for Pakistan recognition)',
       'Age: 17–25 years at time of admission',
-      'Valid Pakistani passport',
+      'Valid  passport',
       'IELTS 5.5+ or English proficiency certificate (for English-medium universities)',
       'Medical fitness certificate from a registered doctor',
     ],

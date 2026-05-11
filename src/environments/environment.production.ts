@@ -8,4 +8,8 @@ export const environment = {
     messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
     appId:             'YOUR_APP_ID',
   },
+  youtubeApiKey:    'YOUR_YOUTUBE_API_KEY',
+  youtubeChannelId: 'YOUR_CHANNEL_ID',
+  googleApiKey:     'YOUR_GOOGLE_API_KEY',
+  googlePlaceId:    'YOUR_PLACE_ID',
 };
